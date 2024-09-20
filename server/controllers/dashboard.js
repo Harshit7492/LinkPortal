@@ -1,38 +1,29 @@
+// controllers/dashboard.js
+const jwt = require('jsonwebtoken');
 const User = require('../models/user');
-const jwt = require('jsonwebtoken');  // Correct import for jsonwebtoken
 
 const dashboardData = async (req, res) => {
     const { tokenMail } = req.body;
-    console.log(tokenMail);
-
     try {
-        // Verify and decode the token using the secret key
-        const decodeTokenMail = jwt.verify(tokenMail, process.env.SECRET_JWT);
-        const email = decodeTokenMail.email;
-        console.log(email);
-
-        // Fetch user data from the database based on the decoded email
-        const user = await User.findOne({ email: email });
+        const decodedToken = jwt.verify(tokenMail, process.env.SECRET_JWT);
+        const email = decodedToken.email;
+        const user = await User.findOne({ email });
         if (!user) {
+            console.log(`User not found for email: ${email}`);  // Log the email being searched
             return res.status(404).json({ message: 'User not found', status: 'error' });
         }
-
-        // Prepare user data
         const userData = {
             name: user.name,
             role: user.role,
-            bio:user.bio,
+            bio: user.bio,
             avatar: user.avatar,
             handle: user.handle,
             links: user.links.length,
         };
-
-        console.log(userData);
-        return res.json({ message: 'Success for backend', userData, status: '200' });
-        
+        return res.json({ message: 'Success', userData, status: 'success' });
     } catch (error) {
-        console.log(error);
-        return res.json({ status: 'error', error: error.message });
+        console.error('Error:', error.message);
+        return res.status(500).json({ status: 'error', error: 'Internal server error' });
     }
 };
 

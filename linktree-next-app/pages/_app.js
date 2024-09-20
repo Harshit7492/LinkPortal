@@ -60,7 +60,7 @@ export default function App({ Component, pageProps }) {
                     });
                 `}
     </Script>
-    <UserContext.Provider value={{userData,setUserData}}>
+    <UserContext.Provider value={{userData, setUserData}}>
     <ToastContainer />
     {isLoading && <div className="nprogress-custom-parent"><div className="nprogress-custom-bar"/></div>}
     <Component {...pageProps} />
