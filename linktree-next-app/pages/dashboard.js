@@ -1,8 +1,10 @@
 import React, { useEffect, useState, useContext } from "react";
-import LinkBox from "@/components/LinkBox";
+// import LinkBox from "@/components/LinkBox";
 import UserHeader from "@/components/UserHeader";
 import { toast } from "react-toastify";
 import UserContext from "../context/UserContext";
+
+const BACKEND_URL = env.process.PORT || 'http://localhost:8080/'
 
 const Dashboard = () => {
   const [data, setData] = useState({});
@@ -18,7 +20,7 @@ const Dashboard = () => {
 
     console.log("Using token:", token);  // Log the token being sent
 
-    fetch("http://localhost:8080/data/dashboard", {
+    fetch(`${BACKEND_URL}data/dashboard`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

@@ -4,6 +4,8 @@ import LinkTree from "../components/LinkTree";
 import Link from "next/link";
 import SocialTree from "../components/SocialTree";
 import ShareButton from "../components/ShareButton";
+
+const BACKEND_URL = env.process.PORT || 'http://localhost:8080/'
  
 const Handle = () => {
   const router = useRouter();
@@ -21,7 +23,7 @@ const Handle = () => {
  
   useEffect(() => {
     if (router.query?.handle) {
-      fetch(`http://localhost:8080/get/${router.query.handle}`)
+      fetch(`${BACKEND_URL}get/${router.query.handle}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.status === "error") return toast.error(data.error);

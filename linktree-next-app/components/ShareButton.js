@@ -2,6 +2,8 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { toast } from 'react-toastify';
 
+const FRONTEND_URL = env.process.PORT || 'http://localhost:3000/'
+
 const ShareButton = () => {
     const router = useRouter();
 
@@ -12,7 +14,7 @@ const ShareButton = () => {
             toast.error('Handle not available');
             return;
         }
-        const url = `http://localhost:3000/${handle}`;
+        const url = `${FRONTEND_URL}${handle}`;
         navigator.clipboard.writeText(url)
             .then(() => {
                 toast.success('Copied to clipboard');

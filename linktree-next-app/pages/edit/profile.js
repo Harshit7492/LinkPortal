@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import UserContext from "../../context/UserContext";
 import UserHeader from "../../components/UserHeader";
 import { toast } from "react-toastify";
+
+const BACKEND_URL = env.process.PORT || 'http://localhost:8080/'
  
 const profile = () => {
   const router = useRouter();
@@ -36,7 +38,7 @@ const profile = () => {
   }, [userData]);
   const saveProfile = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:8080/save/profile`, {
+    fetch(`${BACKEND_URL}save/profile`, {
       method: "POST",
       headers: {
         "Content-type": "application/json"
@@ -56,7 +58,7 @@ const profile = () => {
   };
   const saveSocials = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:8080/save/socials`, {
+    fetch(`${BACKEND_URL}save/socials`, {
       method: "POST",
       headers: {
         "Content-type": "application/json"
@@ -75,7 +77,7 @@ const profile = () => {
  
   useEffect(() => {
     if (!localStorage.getItem("LinkTreeToken")) return router.push("/login");
-    fetch(`http://localhost:8080/load/socials`, {
+    fetch(`${BACKEND_URL}load/socials`, {
       method: "POST",
       headers: {
         "Content-type": "application/json"
