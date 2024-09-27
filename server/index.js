@@ -22,7 +22,6 @@ mongoose.connect(process.env.MONGO_URI)
     console.error('MongoDB connection error:', err);
   });
 app.post('/api/register',registerUser)
-app.post('/api/login',loginUser)
 app.post('/data/dashboard',dashboardData)
 app.get('/get/:handle',getUserData)
 app.post("/save/socials", saveSocials);
@@ -30,11 +29,12 @@ app.post("/save/profile", saveProfile);
 app.post("/save/links", saveLinks);
 app.post("/load/socials", loadSocials);
 app.post("/load/links", loadLinks);
-// app.get('/get/socials/:handle', getUserSocials)
-// app.post('/save/socials',saveSocials)
-// app.post('/load/socials',loadSocials)
+
+app.post('/api/login',loginUser)
+
+
 app.get('/',(req,res)=>{
-    res.send("hello server")
+    res.send(`server is running on port no ${port}`)
 })  
 
 

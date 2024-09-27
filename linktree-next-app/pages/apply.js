@@ -20,7 +20,7 @@ const Apply = () => {
     e.preventDefault();
     if (!category) return toast("Select a Category")
 
-    fetch('http://localhost:8080/api/register', {
+    fetch('http://127.0.0.1:8080/api/register', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -84,8 +84,8 @@ const Apply = () => {
                 </svg>
                 <input value={handle} onChange={e => setHandle(e.target.value)} className="focus:outline-none autofocus" type="text" placeholder='Enter your name' required />
               </span>
-              <input value={password} onChange={e => setPassword(e.target.value)} className="border-2 border-gray-100 bg-white text-black shadow-md p-2 rounded-lg focus:outline-none autofocus" type="email" placeholder='Enter your email' required />
-              <input value={email} onChange={e => setEmail(e.target.value)} className="border-2 border-gray-100 bg-white text-black shadow-md p-2 rounded-lg focus:outline-none autofocus" type="password" placeholder='Enter password' required />
+              <input value={email} onChange={e => setEmail(e.target.value)} className="border-2 border-gray-100 bg-white text-black shadow-md p-2 rounded-lg focus:outline-none autofocus" type="email" placeholder='Enter your Email' required />
+              <input value={password} onChange={e => setPassword(e.target.value)} className="border-2 border-gray-100 bg-white text-black shadow-md p-2 rounded-lg focus:outline-none autofocus" type="password" placeholder='Enter your password' required />
               {/* <input className="bg-indigo-600 text-white p-2 rounded-lg" type="submit" value="Subscribe" /> */}
 
               <h5 className='text-center text-sm text-indigo-500'>Account Type</h5>

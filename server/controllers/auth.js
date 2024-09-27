@@ -8,7 +8,7 @@ const registerUser = async (req, res) => {
     console.log(req.body);
     
     try {
-        const defaultLink = { url: "typefinc.com", title: 'Typefince', icon: 'https://typefinance.com/favicon.ico' };
+        const defaultLink = { url: "typefinc.com", title: 'Typefince', icon: '' };
         const user = await User.create({ handle, email, password, role: category, links: [defaultLink] });
         const token = jwt.sign({ email }, process.env.SECRET_JWT);
         console.log("User created:", user);
@@ -37,7 +37,7 @@ const loginUser = (req, res) => {
 
     }
     catch(error){
-        return res.json({ message: error.message, status: 'error' });
+        return res.json({ message: "wrong entry", status: 'error' });
 
     }
 
