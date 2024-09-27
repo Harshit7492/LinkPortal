@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const FRONTEND_URL = env.process.PORT || 'http://localhost:3000/'
+const FRONTEND_URL = process.env.PORT || 'http://localhost:3000/'
 
 const ShareButton = () => {
     const router = useRouter();

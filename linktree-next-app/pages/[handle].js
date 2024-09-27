@@ -5,7 +5,7 @@ import Link from "next/link";
 import SocialTree from "../components/SocialTree";
 import ShareButton from "../components/ShareButton";
 
-const BACKEND_URL = env.process.PORT || 'http://localhost:8080/'
+const BACKEND_URL = process.env.PORT || 'http://localhost:8080/'
  
 const Handle = () => {
   const router = useRouter();

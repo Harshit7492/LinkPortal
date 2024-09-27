@@ -4,7 +4,7 @@ import UserHeader from "@/components/UserHeader";
 import { toast } from "react-toastify";
 import UserContext from "../context/UserContext";
 
-const BACKEND_URL = env.process.PORT || 'http://localhost:8080/'
+const BACKEND_URL = process.env.PORT || 'http://localhost:8080/'
 
 const Dashboard = () => {
   const [data, setData] = useState({});

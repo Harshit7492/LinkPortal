@@ -3,8 +3,8 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import UserContext from '@/context/UserContext';
 
-const BACKEND_URL = env.process.PORT || 'http://localhost:8080/'
-const FRONTEND_URL = env.process.PORT || 'http://localhost:3000/'
+const BACKEND_URL = process.env.PORT || 'http://localhost:8080/'
+const FRONTEND_URL = process.env.PORT || 'http://localhost:3000/'
 
 
 const UserHeader = () => {

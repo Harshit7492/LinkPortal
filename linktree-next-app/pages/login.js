@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-const BACKEND_URL = env.process.PORT || 'http://localhost:8080/'
+const BACKEND_URL = process.env.PORT || 'http://localhost:8080/'
 
 const Login = () => {
 

@@ -4,7 +4,7 @@ import UserContext from "../../context/UserContext";
 import UserHeader from "../../components/UserHeader";
 import { toast } from "react-toastify";
 
-const BACKEND_URL = env.process.PORT || 'http://localhost:8080/'
+const BACKEND_URL = process.env.PORT || 'http://localhost:8080/'
  
 const profile = () => {
   const router = useRouter();
